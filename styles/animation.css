@@ -1,0 +1,427 @@
+/* Custom cursor ---------------------------------------------*/
+/* Hide default cursor */
+* {
+    cursor: none;
+}
+
+/* Main cursor style */
+.cursor {
+    width: 10px;
+    height: 10px;
+    background-color: #FFE7D2;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.7;
+    transition: transform 0.2s ease;
+}
+
+/* Cursor hover effect */
+.cursor.hover {
+    transform: scale(1.5);
+    background-color: #FFE7D2;
+    opacity: 0.4;
+}
+
+/* Trail effect style */
+.cursor-trail {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.3;
+    transition: 0.1s;
+    color: #FFE7D2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.cursor-trail::before {
+    content: '✦'; 
+    font-size: 2rem; 
+}
+
+/* page transition ------------------------------------------------*/
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #070707;
+    z-index: 10000;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.page-transition.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* loading */
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    white-space: pre;
+    font-size: 1rem;
+    line-height: 1.2em;
+    height: 1.2em;
+    overflow: hidden;
+    color: #FFE7D2;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loader:before {
+    content: "Loading...\AgodnLai...\Aoiaglni...\ALiongad...\Agindola...\Analoidg...";
+    white-space: pre;
+    display: inline-block;
+    animation: l38 1s infinite steps(6);
+}
+
+@keyframes l38 {
+    100% {
+        transform: translateY(-100%)
+    }
+}
+
+.page-transition:not(.active) .loader {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.page-transition.active .loader {
+    opacity: 1;
+}
+
+/* scrollbar ---------------------------------------------------*/
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(7, 7, 7, 0.2);
+    border-radius: 3px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        transparent,
+        rgba(255, 231, 210, 0.3),
+        rgba(255, 231, 210, 0.5),
+        rgba(255, 231, 210, 0.3),
+        transparent
+    );
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+        transparent,
+        rgba(255, 231, 210, 0.4),
+        rgba(255, 231, 210, 0.6),
+        rgba(255, 231, 210, 0.4),
+        transparent
+    );
+}
+
+
+/* underline and decoration ------------------------------------------------------------*/
+/* landing section */
+#landing .header {
+    position: relative;
+    display: inline-block;
+}
+
+#landing .header p:first-child::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 60%;
+    width: 100vw; 
+    height: 1px;
+    background-color: #A4988E;
+    z-index: 1;
+}
+
+#landing .header p:first-child::after {
+    content: '✦';
+    position: absolute;
+    left: -10%;
+    top: 40%;
+    font-size: 2.5rem;
+    z-index: 1;
+
+    @media (max-width: 75em){
+        left: -15%;
+        top: 37%;
+    }
+
+    @media (max-width: 50em){
+        font-size: 1.8rem;
+    }
+}
+
+.cta-buttons a {
+    position: relative; 
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #A4988E;
+    border-radius: 4px;
+}
+
+.cta-buttons a::before {
+    content: '✦'; 
+    position: absolute;
+    left: 50%; 
+    top: -3.5rem; 
+    transform: translateX(-50%); 
+    font-size: 2rem;
+    color: #FFE7D2;
+    z-index: 1;
+
+    @media (max-width: 75em){
+        top: -2.7rem; 
+    }
+}
+
+/* about section */
+#about .header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -30%;
+    width: 100%; 
+    height: 1px;
+    background-color: #FFE7D2;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+#about .header::after {
+    content: '✦'; 
+    position: absolute;
+    top: 0;
+    right: 25%;
+    font-size: 1.5rem;
+    color: #FFE7D2;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+/*  add line and star */
+#about .description::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+    height: 1px;
+    margin: 0 1rem;
+    background-color: #A4988E;
+    z-index: 1;
+}
+
+#about .description::after {
+    content: '✦';
+    position: absolute;
+    bottom: -1rem;  
+    left: 15%;      
+    font-size: 1.5rem; 
+    color: #FFE7D2;
+    z-index: 2;
+}
+
+/* stars ------------------------------------------------------------*/
+#landing::before,
+#landing::after {
+    content: '✦';
+    position: absolute;
+    color: #FFE7D2;
+    opacity: 0.6;
+    font-size: 1.5rem;
+}
+
+#landing::before {
+    top: 20%;
+    left: 15%;
+}
+
+#landing::after {
+    bottom: 30%;
+    right: 40%;
+}
+
+#landing {
+    position: relative;
+}
+
+.star-group {
+    position: absolute;
+    left: 10%;
+    bottom: 15%;
+    width: 200px;
+    height: 200px;
+}
+
+.star-main {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #FFE7D2;
+    opacity: 0.8;
+    clip-path: polygon(
+        50% 0%,    
+        65% 35%,   
+        100% 50%,  
+        65% 65%,   
+        50% 100%,  
+        35% 65%,   
+        0% 50%,    
+        35% 35%    
+    );
+    animation: starTwinkle 3s ease-in-out infinite;
+}
+
+.star-small {
+    position: absolute;
+    background: #FFE7D2;
+    opacity: 0.6;
+    clip-path: polygon(
+        50% 0%,    
+        65% 35%,   
+        100% 50%,  
+        65% 65%,   
+        50% 100%,  
+        35% 65%,   
+        0% 50%,    
+        35% 35%    
+    );
+}
+
+.star-main {
+    width: 4.5rem;
+    height: 4.5rem;
+    bottom: 0;
+    left: -90%;
+    animation: starTwinkle 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.star-1 {
+    width: 25px;
+    height: 25px;
+    bottom: -7%;
+    left: -60%;
+    animation: starTwinkle 4s cubic-bezier(0.4, 0, 0.2, 1) infinite 0.5s;
+}
+
+.star-2 {
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    left: -97%;
+    animation: starTwinkle 4s cubic-bezier(0.4, 0, 0.2, 1) infinite 1s;
+}
+
+.star-3 {
+    width: 2rem;
+    height: 2rem;
+    bottom: 35%;
+    left: -87%;
+    animation: starTwinkle 4s cubic-bezier(0.4, 0, 0.2, 1) infinite 1.5s;
+}
+
+.top-star-main {
+    width: 3.15rem;
+    height: 3.15rem;
+    top: -155%;
+    left: 40%;
+    animation: starTwinkle 4s cubic-bezier(0.4, 0, 0.2, 1) infinite 0.5s;
+}
+
+.top-star-1 {
+    width: 15px;
+    height: 15px;
+    top: -123%;
+    left: 50%;
+    animation: starTwinkle 4s cubic-bezier(0.4, 0, 0.2, 1) infinite 1s;
+}
+
+@media (max-width: 50em) {
+    .star-main {
+        width: 3.15rem;
+        height: 3.15rem;
+        bottom: -35%;
+        left: -23%;
+    }
+
+    .star-1 {
+        bottom: -40%;
+        left: 0;
+    }
+
+    .star-2 {
+        bottom: -10%;
+        left: -25%;
+    }
+
+    .star-3 {
+        width: .9rem;
+        height: .9rem;
+        bottom: -25%;
+        left: -30%;
+    }
+
+    .top-star-main {
+        top: -150%;
+        left: 23%;
+    }
+
+    .top-star-1 {
+        top: -123%;
+        left: 23%;
+    }
+
+}
+
+@keyframes starTwinkle {
+    0% {
+        transform: rotate(30deg) scale(0.8);
+        opacity: 0.5;
+    }
+    25% {
+        transform: rotate(45deg) scale(0.9);
+        opacity: 0.6;
+    }
+    50% {
+        transform: rotate(60deg) scale(1);
+        opacity: 0.8;
+    }
+    75% {
+        transform: rotate(75deg) scale(0.9);
+        opacity: 0.6;
+    }
+    90% {
+        transform: rotate(90deg) scale(0.8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotate(390deg) scale(0.8);
+        opacity: 0.5;
+    }
+}
+

@@ -1,0 +1,157 @@
+/* landing ----------------------------------------------*/
+.landing-bg {
+    position: relative;
+    background-color: rgb(19, 19, 19);
+}
+
+.image-slider-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    cursor: grab;
+}
+
+.image-slider-wrapper:active {
+    cursor: grabbing;
+}
+
+.drag-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(7, 7, 7, 0.8);
+    color: #FFE7D2;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.image-slider-container {
+    display: flex;
+    align-items: start;
+    width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    gap: 1rem; 
+
+    user-select: none;
+}
+
+.image-slider-container.active {
+    cursor: grabbing;
+}
+
+.image-slider-container img {
+    flex: 0 0 auto;
+    width: 1150px;
+    height: auto;
+    scroll-snap-align: start;
+    pointer-events: none;
+}
+
+@media (max-width: 50em) {
+    .image-slider-container img {
+        width: auto;
+        height: 645px;
+    }
+}
+
+.image-slider-container::-webkit-scrollbar {
+    display: none;
+}
+
+#landing::after,
+#landing::before {
+    content: none;
+}
+
+
+
+/* about ----------------------------------------------*/
+.live-btn {
+    padding: 0 2rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+}
+
+.live-btn .btn {
+    background-color: #4A4A4A;
+    color: #FFE7D2;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.live-btn .btn::after {
+    content: none;
+    display: none;
+}
+
+.live-btn .btn:hover {
+    background-color: #333;
+}
+
+
+#about h2 {
+    font-size: 2rem;
+    padding: 0 2rem;
+    text-align: end;
+    font-weight: 200;
+}
+
+#about .parallax-slider {
+     top: 50%;
+}
+
+/* movkup ----------------------------------------------*/
+.mockup-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.mockup-container-desktop,
+.mockup-container-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+
+.mockup-container img {
+    flex: 1 1 30%;
+    max-width: 400px;
+    height: auto;
+}
+
+.mockup {
+    height: auto;
+}
+
+.mockup h2 {
+    font-size: 4rem;
+    font-weight: 200;
+    font-style: italic;
+    margin: 4rem;
+}
+
+/* more projects ----------------------------------------------*/
+#contact {
+    margin: 0;
+}
+
+
