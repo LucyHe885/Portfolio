@@ -1,0 +1,23 @@
+/* movkup ----------------------------------------------*/
+.mockup-container-desktop,
+.mockup-container-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mockup-container img {
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.mockup {
+    height: auto;
+}
+
+@media (max-width: 50em) {
+    .mockup h2 {
+        font-size: 32px;
+    }
+}

@@ -1,0 +1,26 @@
+/* movkup ----------------------------------------------*/
+.mockup-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  
+}
+
+.mockup-container-desktop,
+.mockup-container-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+
+}
+
+.mockup-container img {
+    flex: 1 1 30%;
+    min-width: 300px;
+    max-width: 700px;
+    height: auto;
+}
+
