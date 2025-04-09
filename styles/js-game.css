@@ -21,3 +21,20 @@
         font-size: 32px;
     }
 }
+
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+#about {
+    height: 190vh;
+}
+
+#about .parallax-slider {
+    top: 55%;
+}
+
+.parallax-slider img {
+    height: 130%;
+}

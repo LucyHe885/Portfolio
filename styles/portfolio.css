@@ -24,3 +24,19 @@
     height: auto;
 }
 
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+#about {
+    height: 190vh;
+}
+
+#about .parallax-slider {
+    top: 60%;
+}
+
+.parallax-slider img {
+    height: 130%;
+}
