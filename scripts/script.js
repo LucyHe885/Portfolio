@@ -55,24 +55,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// 5. Work Section Tabs - 使用独特的类名
+// 5. Work Section Tabs 
 document.addEventListener("DOMContentLoaded", () => {
     const workTabs = document.querySelectorAll(".work-tab-btn");
     const workPanels = document.querySelectorAll(".work-panel");
+    const contact = document.getElementById("contact");
 
     workTabs.forEach(tab => {
         tab.addEventListener("click", () => {
-            // 只移除 work section 的活动状态
-            workTabs.forEach(t => t.classList.remove("active"));
-            workPanels.forEach(p => p.classList.remove("active"));
 
-            // 添加新的活动状态
+            workTabs.forEach(t => t.classList.remove("active"));
             tab.classList.add("active");
+
+            workPanels.forEach(p => p.classList.remove("active"));
             const targetPanel = document.getElementById(tab.dataset.tab);
             targetPanel.classList.add("active");
+
+            const isSmallScreen = window.innerWidth <= 768;
+
+            if (tab.dataset.tab === "artwork" && isSmallScreen) {
+                contact.classList.add("artwork-active");
+            } else {
+                contact.classList.remove("artwork-active");
+            }
         });
     });
 });
+
+
 
 // 6. About Section Parallax
 const aboutSection = document.querySelector('#about');
@@ -90,7 +100,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 3d img - 修改为选择所有图片
+// 3d img
 const images = document.querySelectorAll('.single-work img');
 
 images.forEach(image => {
@@ -109,3 +119,5 @@ images.forEach(image => {
         image.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg) translateZ(10px)';
     });
 });
+
+
